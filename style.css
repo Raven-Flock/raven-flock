@@ -53,12 +53,13 @@ a:hover { color: var(--ink); }
   position: sticky;
   top: 0;
   z-index: 100;
-  height: var(--header-h);
+  min-height: var(--header-h);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 0 1.25rem;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  padding: 0.45rem 1.25rem;
   background: rgba(245, 240, 230, 0.92);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(28, 25, 23, 0.08);
@@ -103,7 +104,8 @@ a:hover { color: var(--ink); }
   border-bottom: 2px solid transparent;
 }
 .nav a:hover,
-.nav a:focus-visible {
+.nav a:focus-visible,
+.nav a[aria-current="page"] {
   color: var(--ink);
   border-bottom-color: var(--amber);
   outline: none;
@@ -333,6 +335,7 @@ h3 { font-size: 1.25rem; margin: 0 0 0.5rem; }
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
+  min-height: 44px;
   padding: 0.7rem 1.2rem;
   border-radius: 999px;
   font-weight: 600;
@@ -340,6 +343,9 @@ h3 { font-size: 1.25rem; margin: 0 0 0.5rem; }
   text-decoration: none;
   border: 2px solid transparent;
   transition: background 0.15s, color 0.15s, border-color 0.15s;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  text-align: center;
 }
 
 .btn-primary {
@@ -593,4 +599,58 @@ h3 { font-size: 1.25rem; margin: 0 0 0.5rem; }
 .more-copy p {
   margin: 0 0 1rem;
   color: var(--ink-soft);
+}
+
+/* Work page */
+.work-hero h1 {
+  letter-spacing: 0;
+  max-width: 18ch;
+  margin-inline: auto;
+  text-wrap: balance;
+}
+
+.work-hero .lede {
+  max-width: 46ch;
+  margin: 0.5rem auto 0;
+}
+
+.stack-card {
+  margin-top: 1.25rem;
+  padding: 1.5rem;
+  background: var(--nest);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(28, 25, 23, 0.06);
+}
+
+.stack-card h3 {
+  margin-top: 0;
+}
+
+.stack-card p,
+.work-copy {
+  margin: 0 0 1rem;
+  max-width: 62ch;
+  color: var(--ink-soft);
+}
+
+.stack-card p:last-of-type {
+  margin-bottom: 1rem;
+}
+
+.work-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  max-width: 62ch;
+  color: var(--ink-soft);
+}
+
+.work-list li + li {
+  margin-top: 0.7rem;
+}
+
+#services,
+#notes {
+  background: var(--nest);
+  border-top: 1px solid rgba(28, 25, 23, 0.06);
 }
